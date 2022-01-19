@@ -24,7 +24,6 @@
                         <img src="{{ $post->thumb }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
-                            {{-- //nascosto per mostrarlo nello show --}}
                             {{-- <p class="card-text">{{ $post->subtitle }}</p> --}}
                             <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Dettagli</a>
                         </div>

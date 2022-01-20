@@ -4,9 +4,9 @@
     <div class="container">
 
         <div class="d-flex border">
-            <div class="w-25 bg-danger">
+            <div class="w-25 bg-dark text-light">
                 <h1>Sidebar</h1>
-                <div>
+                <div class="d-flex">
                     <ul class="list-unstyled">
                         <div class="p-2">
                             <ul class="list-unstyled">
@@ -24,6 +24,7 @@
                         <img src="{{ $post->thumb }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $post->title }}</h5>
+                            {{-- <h5>{{ $post->category->name }}</h5> --}}
                             {{-- <p class="card-text">{{ $post->subtitle }}</p> --}}
                             <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Dettagli</a>
                         </div>

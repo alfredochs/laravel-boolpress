@@ -9,6 +9,9 @@
             <div class="card-body text-light">
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <p class="card-text">{{ $post->subtitle }}</p>
+                <h2>{{ Auth::user()->name }}</h2>
+                <h5>{{ $post->category->name }}</h5>
+
                 <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Modifica</a>
 
                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
@@ -20,6 +23,9 @@
         </div>
 
         <a href='{{ route('admin.posts.index') }}' class="btn btn-primary">Torna Indietro</a>
+        <div>
+            @dump($post)
+        </div>
 
 
     </div>

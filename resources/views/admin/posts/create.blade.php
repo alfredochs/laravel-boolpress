@@ -16,6 +16,14 @@
                 <label for="thumb">Immagine</label>
                 <input type="thumb" name="thumb" id="thumb">
             </div>
+            <div>
+                <label for="category_id">Categoria</label>
+                <select name="category_id" id="category_id">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="Crea">
             {{-- button delete --}}
         </form>

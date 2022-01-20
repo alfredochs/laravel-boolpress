@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -15,7 +17,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::where('user_id',Auth::user()->id)->get();
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -25,8 +28,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.posts.create');
+    {   $categories = Category::all();
+        return view('admin.posts.create',compact('categories'));
     }
 
     /**
@@ -41,6 +44,7 @@ class PostsController extends Controller
         $newPost = new Post();
         $newPost->fill($data);
         // $newPost = Post::create($data);
+        $newPost->user_id=Auth::user()->id;
         $newPost->save();
 
         return redirect()->route('admin.posts.index');
@@ -53,7 +57,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
-    {
+    {   
+        $categories = Category::all();
         return view('admin.posts.show',compact('post'));
     }
 
@@ -65,7 +70,11 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit',[
+            'post'=>$post,
+            'categories' => $categories,
+        ]);
     }
 
     /**

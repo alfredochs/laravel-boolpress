@@ -98,6 +98,7 @@ class PostsController extends Controller
         $data = $request->all();
         $post->update($data);
         $post->tags()->sync($data['tags']);
+        // post fa riferimento al model -> tags(funzionde del model)->sync (attach & dettach)($data richiesti dal form dati del form -> [tags] name del form che stavolta è sotto array)
         return redirect()->route('admin.posts.show',$post->id);
     }
 

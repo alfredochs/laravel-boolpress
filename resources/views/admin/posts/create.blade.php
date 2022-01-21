@@ -24,6 +24,15 @@
                     @endforeach
                 </select>
             </div>
+
+            <div>
+                <label for="tags">Tags</label>
+                <select name="tags[]" id="tags" multiple>
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="Crea">
             {{-- button delete --}}
         </form>

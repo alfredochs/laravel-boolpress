@@ -11,6 +11,11 @@
                 <p class="card-text">{{ $post->subtitle }}</p>
                 <h2>{{ Auth::user()->name }}</h2>
                 <h5>{{ $post->category->name }}</h5>
+                <div>
+                    @foreach ($post->tags as $tag)
+                        <h5 class="btn btn-danger">{{ $tag->name }}</h5>
+                    @endforeach
+                </div>
 
                 <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Modifica</a>
 

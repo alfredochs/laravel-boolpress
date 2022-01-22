@@ -109,12 +109,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     NavBar: _partials_NavBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  name: "App"
+  name: "App",
+  data: function data() {
+    return {
+      postList: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    window.axios.get("/api/posts").then(function (resp) {
+      _this.postList = resp.data;
+    });
+  }
 });
 
 /***/ }),
@@ -635,18 +658,45 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("header", [_c("nav-bar")], 1), _vm._v(" "), _vm._m(0)])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", { staticClass: "container" }, [
+  return _c("div", [
+    _c("main", { staticClass: "container" }, [
       _c("h1", [_vm._v("Contenuto dei guests con VUE")]),
-    ])
-  },
-]
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex", staticStyle: { gap: "10px" } },
+        _vm._l(_vm.postList, function (post) {
+          return _c(
+            "div",
+            {
+              key: post.id,
+              staticClass: "card",
+              staticStyle: { width: "18rem" },
+            },
+            [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: { src: post.thumb, alt: "..." },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(post.title)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(post.subtitle)),
+                ]),
+              ]),
+            ]
+          )
+        }),
+        0
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

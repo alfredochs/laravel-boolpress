@@ -11,20 +11,19 @@
                 <p class="card-text">Subtitle: {{ $post->subtitle }}</p>
                 <div>
                     <span>Author:</span>
-                    <h2>{{ Auth::user()->name }}</h2>
+                    <h5>{{ Auth::user()->name }}</h5>
                 </div>
                 <div>
-                    <span>Category: </span>
-                    <h5>{{ $post->category->name }}</h5>
+                    <h5>Category: {{ $post->category->name }}</h5>
                 </div>
                 <div>
                     <span>#</span>
                     @foreach ($post->tags as $tag)
-                        <h5 class="btn btn-success">{{ $tag->name }}</h5>
+                        <h5 class="btn btn-success btn-sm">{{ $tag->name }}</h5>
                     @endforeach
                 </div>
 
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-1 justify-content-center">
                     <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Modifica</a>
 
                     <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
@@ -34,15 +33,15 @@
                     </form>
                 </div>
             </div>
-            <div class="text-center pb-2">
-                <a href='{{ route('admin.posts.index') }}' class="btn btn-primary">Torna Indietro</a>
-            </div>
         </div>
+    </div>
+    <div class="text-center py-3">
+        <a href='{{ route('admin.posts.index') }}' class="text-light btn btn-primary btn-sm">Torna Indietro</a>
+    </div>
 
-        {{-- <div>
+    {{-- <div>
             @dump($post)
         </div> --}}
 
 
-    </div>
 @endsection

@@ -41,26 +41,30 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="container collapse navbar-collapse d-flex justify-content-between"
+                    id="navbarSupportedContent">
                     <div class="text-light">
                         Bool Press
                     </div>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.home') }}">Dashboard Admin</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                            </li>
-                            @if (Route::has('register'))
+
+                    <div>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+                            @auth
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                    <a class="nav-link" href="{{ route('admin.home') }}">Dashboard Admin</a>
                                 </li>
-                            @endif
-                        @endauth
-                    </ul>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                </li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                    </li>
+                                @endif
+                            @endauth
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>

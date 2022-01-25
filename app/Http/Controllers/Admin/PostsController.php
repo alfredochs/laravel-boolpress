@@ -20,6 +20,7 @@ class PostsController extends Controller
     {
         // $posts = Post::all();
         $posts = Post::where('user_id',Auth::user()->id)->get();
+        $posts = Post::paginate(4);
         return view('admin.posts.index', compact('posts'));
     }
 

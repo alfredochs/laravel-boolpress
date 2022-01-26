@@ -26,7 +26,7 @@
                         <li class="nav-item">
                             <router-link
                                 class="nav-link"
-                                :to="{ name: 'all-posts' }"
+                                :to="{ name: 'posts.show' }"
                                 >All Posts</router-link
                             >
                         </li>
@@ -47,19 +47,3 @@ export default {
 </script>
 
 <style></style>
-// dropdown //
-<li class="nav-item dropdown">
-//                         <a
-//                             class="nav-link dropdown-toggle"
-//                             href="#"
-//                             id="dropdownId"
-//                             data-toggle="dropdown"
-//                             aria-haspopup="true"
-//                             aria-expanded="false"
-//                             >Dropdown</a
-//                         >
-//                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-//                             <a class="dropdown-item" href="#">Action 1</a>
-//                             <a class="dropdown-item" href="#">Action 2</a>
-//                         </div>
-//                     </li>

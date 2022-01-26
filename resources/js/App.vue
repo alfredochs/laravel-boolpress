@@ -1,7 +1,31 @@
 <template>
     <div>
+        <!-- Router -->
+        <router-view></router-view>
+        <div>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <router-link
+                        class="nav-link active"
+                        :to="{ name: 'contacts' }"
+                        >Contacts</router-link
+                    >
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="{ name: 'home' }"
+                        >Home</router-link
+                    >
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="{ name: 'about' }"
+                        >About Us</router-link
+                    >
+                </li>
+            </ul>
+        </div>
+
         <main class="container">
-            <h1>Contenuto dei guests con VUE</h1>
+            <!-- <h1>Contenuto dei guests con VUE</h1> -->
             <div class="d-flex" style="gap: 10px">
                 <div
                     v-for="post in postList"
@@ -23,9 +47,7 @@
 <style></style>
 
 <script>
-import NavBar from "./partials/NavBar.vue";
 export default {
-    components: { NavBar },
     name: "App",
     data() {
         return {

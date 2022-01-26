@@ -18,15 +18,7 @@
                     </div>
                 </div> --}}
         <div class="d-flex border">
-            <div class="w-25 bg-danger">
-                <h1>Sidebar</h1>
-                <div class="p-2">
-                    <ul class="list-unstyled">
-                        <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-                        <li><a href='{{ route('admin.posts.index') }}'>Posts</a></li>
-                    </ul>
-                </div>
-            </div>
+            @include('admin.partials.sidebar')
             <div class="bg-dark text-light flex-grow-1">
                 <h1>contenuto della dashboard</h1>
                 <div class="">
@@ -37,6 +29,5 @@
             </div>
         </div>
         {{-- </div> --}}
-    </div>
     </div>
 @endsection

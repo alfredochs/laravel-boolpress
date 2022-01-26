@@ -4,22 +4,10 @@
     <div class="container">
 
         <div class="d-flex border">
-            <div class="w-25 bg-dark text-light">
-                <h1>Sidebar</h1>
-                <div class="d-flex">
-                    <ul class="list-unstyled">
-                        <div class="p-2">
-                            <ul class="list-unstyled">
-                                <li><a href="{{ route('admin.home') }}">Dashboard</a></li>
-                                <li><a href='{{ route('admin.posts.index') }}'>Posts</a></li>
-                                <li><a href="{{ route('admin.posts.create') }}" class="btn btn-light">Crea Post</a></li>
-                            </ul>
-                        </div>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="row text-light bg-dark">
+            @include('admin.partials.sidebar')
+
+            <div class="row flex-grow-1 text-light bg-dark">
                 @foreach ($posts as $post)
                     <div class="col py-3">
                         <div class="card h-100 bg-dark" style="width: 18rem;">

@@ -21,7 +21,7 @@
 
 <body>
 
-    @if (Route::has('login'))
+    {{-- @if (Route::has('login'))
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </nav>
-    @endif
+    @endif --}}
 
 
 

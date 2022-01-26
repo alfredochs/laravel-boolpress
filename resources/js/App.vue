@@ -1,32 +1,12 @@
 <template>
     <div>
+        <Navbar></Navbar>
         <!-- Router -->
         <router-view></router-view>
-        <div>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <router-link
-                        class="nav-link active"
-                        :to="{ name: 'contacts' }"
-                        >Contacts</router-link
-                    >
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'home' }"
-                        >Home</router-link
-                    >
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" :to="{ name: 'about' }"
-                        >About Us</router-link
-                    >
-                </li>
-            </ul>
-        </div>
 
         <main class="container">
             <!-- <h1>Contenuto dei guests con VUE</h1> -->
-            <div class="d-flex" style="gap: 10px">
+            <!-- <div class="d-flex" style="gap: 10px">
                 <div
                     v-for="post in postList"
                     :key="post.id"
@@ -39,25 +19,32 @@
                         <p class="card-text">{{ post.subtitle }}</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </main>
+
+        <Footer></Footer>
     </div>
 </template>
 
 <style></style>
 
 <script>
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
+import Post from "./components/Post.vue";
+
 export default {
     name: "App",
-    data() {
-        return {
-            postList: [],
-        };
-    },
-    mounted() {
-        window.axios.get("/api/posts").then((resp) => {
-            this.postList = resp.data;
-        });
-    },
+    components: { Navbar, Footer, Post },
+    // data() {
+    //     return {
+    //         postList: [],
+    //     };
+    // },
+    // mounted() {
+    //     window.axios.get("/api/posts").then((resp) => {
+    //         this.postList = resp.data;
+    //     });
+    // },
 };
 </script>

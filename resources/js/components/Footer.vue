@@ -1,7 +1,9 @@
 <template>
     <footer>
-        <div class="container-fluid bg-dark text-light">
-            <h4>contenuto del footer</h4>
+        <div
+            class="container-fluid bg-dark text-light d-flex justify-content-center"
+        >
+            <h4>Footer</h4>
         </div>
     </footer>
 </template>

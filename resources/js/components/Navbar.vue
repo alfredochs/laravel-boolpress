@@ -12,22 +12,14 @@
                             <router-link
                                 class="nav-link"
                                 :to="{ name: 'contacts' }"
+                                >Contatti</router-link
                             >
-                                Contatti
-                            </router-link>
                         </li>
                         <li class="nav-item">
                             <router-link
                                 class="nav-link"
                                 :to="{ name: 'about' }"
                                 >About</router-link
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <router-link
-                                class="nav-link"
-                                :to="{ name: 'posts.show' }"
-                                >All Posts</router-link
                             >
                         </li>
                     </ul>

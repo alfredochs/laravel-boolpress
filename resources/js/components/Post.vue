@@ -7,6 +7,13 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">{{ post.subtitle }}</p>
+                    <router-link
+                        :to="{
+                            name: 'category.show',
+                            params: { id: post.category.id },
+                        }"
+                        >{{ post.category.name }}</router-link
+                    >
                 </div>
             </router-link>
         </div>

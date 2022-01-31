@@ -5,7 +5,7 @@
         {{-- <h1>contenuto dello show</h1> --}}
 
         <div class="card bg-dark" style="width: 18rem;">
-            <img src="{{ $post->thumb }}" class="card-img-top" alt="...">
+            <img src="{{ asset('storage/' . $post->thumb) }}" class="card-img-top" alt="...">
             <div class="card-body text-light">
                 <h5 class="card-title">Title: {{ $post->title }}</h5>
                 <p class="card-text">Subtitle: {{ $post->subtitle }}</p>

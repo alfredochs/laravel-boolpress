@@ -12,6 +12,7 @@ class PostController extends Controller
     function index(Request $request){
     
         $category = $request->query('category');
+        // dump($category);
         $postList = Post::with('category')
         ->with('tags')
         ->with('user:id,name');
@@ -22,6 +23,10 @@ class PostController extends Controller
         }else{
             $postList = $postList->get();
         }
+
+        $postList->each(function($post){
+            $post->thumb = "/storage/" . $post->thumb;
+        });
         return response()->json($postList);
 
     }
@@ -31,6 +36,8 @@ class PostController extends Controller
         ->with('tags')
         ->with('user:id,name,email')
         ->first();
+
+        $post->thumb = "/storage/" . $post->thumb;
         return $post;
     }
 }

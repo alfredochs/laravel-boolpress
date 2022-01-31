@@ -11,7 +11,7 @@
                 @foreach ($posts as $post)
                     <div class="col py-3">
                         <div class="card h-100 bg-dark" style="width: 18rem;">
-                            <img src="{{ $post->thumb }}" class="card-img-top" alt="...">
+                            <img src="{{ asset('storage/' . $post->thumb) }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 {{-- <h5>{{ $post->category->name }}</h5> --}}

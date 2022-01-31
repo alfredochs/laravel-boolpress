@@ -2,9 +2,10 @@
 
 @section('content')
     <div class="container w-50">
-        <form action="{{ route('admin.posts.update', $post->id) }}" method="POST" class="form-group">
+        <form action="{{ route('admin.posts.update', $post->id) }}" method="POST" class="form-group"
+            enctype="multipart/form-data">
             @csrf
-            @method('put')
+            @method('PUT')
             <div class="row">
                 <div class="col">
                     <label for="title">Titolo</label>
@@ -18,7 +19,7 @@
 
             <div class="my-3">
                 <label for="thumb">Immagine</label>
-                <input class='form-control' type="thumb" name="thumb" id="thumb" value="{{ $post->thumb }}">
+                <input class='form-control' type="file" name="thumb" id="thumb" value="{{ $post->thumb }}">
             </div>
 
             <div>

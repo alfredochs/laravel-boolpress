@@ -8,6 +8,7 @@ use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -51,6 +52,7 @@ class PostsController extends Controller
         $newPost->fill($data);
         // $newPost = Post::create($data);
         $newPost->user_id=Auth::user()->id;
+        $newPost->thumb = Storage::put("posts",$data['thumb']);
         $newPost->save();
 
         $newPost->tags()->sync($data['tags']);
@@ -95,11 +97,20 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
-    {
+    {  
+        //  dump($request->all());
+        //     return;
         $data = $request->all();
+        $oldThumb = $post->thumb;
+        // dd($post->thumb); 
         $post->update($data);
+        if($oldThumb){
+            Storage::delete($oldThumb);
+        };
+        $post->thumb = Storage::put('posts',$data['thumb']);
         $post->tags()->sync($data['tags']);
         // post fa riferimento al model -> tags(funzionde del model)->sync (attach & dettach)($data richiesti dal form dati del form -> [tags] name del form che stavolta è sotto array)
+        $post->save();
         return redirect()->route('admin.posts.show',$post->id);
     }
 
